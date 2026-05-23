@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    @apply bg-slate-50 text-slate-900;
+    font-family:
+      Inter,
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+    margin: 0;
+  }
+
+  body {
+    min-width: 320px;
+    overflow: hidden;
+  }
+
+  button,
+  input {
+    font: inherit;
+  }
+
+  .ProseMirror {
+    min-height: 48vh;
+    color: theme("colors.slate.700");
+    caret-color: theme("colors.slate.900");
+    font-family:
+      "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  }
+
+  .ProseMirror > * + * {
+    margin-top: 1rem;
+  }
+
+  .ProseMirror h1 {
+    color: theme("colors.slate.950");
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+  }
+
+  .ProseMirror h2 {
+    color: theme("colors.slate.900");
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.16;
+  }
+
+  .ProseMirror h3 {
+    color: theme("colors.slate.900");
+    font-size: 1.16rem;
+    font-weight: 650;
+    line-height: 1.24;
+  }
+
+  .ProseMirror p,
+  .ProseMirror li,
+  .ProseMirror blockquote {
+    line-height: 1.95;
+  }
+
+  .ProseMirror ul,
+  .ProseMirror ol {
+    padding-left: 1.4rem;
+  }
+
+  .ProseMirror blockquote {
+    border-left: 3px solid theme("colors.teal.200");
+    color: theme("colors.slate.600");
+    padding-left: 1rem;
+  }
+
+  .ProseMirror code {
+    border-radius: 0.45rem;
+    background: theme("colors.slate.100");
+    color: theme("colors.slate.900");
+    font-family:
+      "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.92em;
+    padding: 0.12rem 0.35rem;
+  }
+
+  .ProseMirror pre {
+    overflow-x: auto;
+    border: 1px solid theme("colors.slate.200");
+    border-radius: 1rem;
+    background: theme("colors.slate.950");
+    color: theme("colors.slate.100");
+    padding: 1rem 1.1rem;
+  }
+
+  .ProseMirror pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+  }
+
+  .ProseMirror a {
+    color: theme("colors.teal.700");
+    text-decoration: underline;
+    text-decoration-color: theme("colors.teal.200");
+    text-underline-offset: 3px;
+  }
+
+  .ProseMirror .is-editor-empty:first-child::before {
+    color: theme("colors.slate.300");
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+  }
+
+  .prometeus-reference-mark {
+    background: theme("colors.teal.50");
+    border-bottom: 1px solid theme("colors.teal.200");
+    color: inherit;
+  }
+
+  .prometeus-reference-mark:hover {
+    background: theme("colors.teal.100");
+    border-bottom-color: theme("colors.teal.300");
+  }
+
+  ::selection {
+    background: theme("colors.teal.200");
+  }
+
+  .drawer-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: theme("colors.slate.400") theme("colors.slate.200");
+  }
+
+  .drawer-scroll::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .drawer-scroll::-webkit-scrollbar-track {
+    margin: 8px 0;
+    border: 1px solid theme("colors.slate.300");
+    border-radius: 9999px;
+    background: theme("colors.slate.50");
+  }
+
+  .drawer-scroll::-webkit-scrollbar-thumb {
+    border: 2px solid transparent;
+    border-radius: 9999px;
+    background: theme("colors.slate.400");
+    background-clip: padding-box;
+  }
+
+  .drawer-scroll::-webkit-scrollbar-thumb:hover {
+    background: theme("colors.slate.500");
+    background-clip: padding-box;
+  }
+}

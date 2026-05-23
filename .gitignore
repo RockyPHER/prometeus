@@ -1,0 +1,14 @@
+node_modules
+dist
+.turbo
+.next
+.env
+.env.local
+*.log
+*.tsbuildinfo
+.codex-logs
+apps/web/dist
+apps/web/.next
+apps/api/dist
+apps/api/schema.gql
+.husky/_

@@ -1,0 +1,11 @@
+node_modules
+dist
+.turbo
+.next
+.codex-logs
+.husky/_
+apps/web/dist
+apps/web/.next
+apps/api/dist
+apps/api/schema.gql
+packages/*/dist

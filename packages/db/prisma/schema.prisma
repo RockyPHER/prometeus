@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum NoteType {
+  free
+  reference
+}
+
+model Project {
+  id          String     @id @default(cuid())
+  name        String
+  description String?
+  documents   Document[]
+  notes       Note[]
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+model Document {
+  id        String   @id @default(cuid())
+  projectId String?
+  project   Project? @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  title     String
+  markdown  String   @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Note {
+  id        String           @id @default(cuid())
+  projectId String?
+  project   Project?         @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  type      NoteType
+  title     String
+  content   String
+  tags      String[]         @default([])
+  source    ReferenceSource?
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+}
+
+model ReferenceSource {
+  id             String @id @default(cuid())
+  noteId         String @unique
+  note           Note   @relation(fields: [noteId], references: [id], onDelete: Cascade)
+  excerpt        String
+  label          String
+  href           String
+  citation       String
+  abntReference  String
+  bibliographyId String?
+}
