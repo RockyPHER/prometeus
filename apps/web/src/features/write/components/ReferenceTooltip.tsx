@@ -26,7 +26,7 @@ export function ReferenceTooltip({ reference }: ReferenceTooltipProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 4 }}
       transition={{ duration: 0.16, ease: "easeOut" }}
-      className="pointer-events-none absolute z-20 w-72 max-w-[calc(100vw-3rem)]"
+      className="pointer-events-none fixed z-50 w-72 max-w-[calc(100vw-3rem)]"
       style={{
         left: reference.x,
         top: reference.y,
@@ -35,7 +35,7 @@ export function ReferenceTooltip({ reference }: ReferenceTooltipProps) {
     >
       <div className="bg-white/96 rounded-[0.95rem] border border-slate-200/90 px-3.5 py-3 shadow-panel-soft backdrop-blur-sm">
         <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-workspace-write-700">
-          Referência
+          Referencia
         </p>
         <p className="mt-1 text-sm font-medium leading-5 text-slate-900">
           {reference.citation}
@@ -50,7 +50,7 @@ export function ReferenceTooltip({ reference }: ReferenceTooltipProps) {
           </p>
         ) : null}
         <p className={cn("mt-2 text-[11px] font-medium text-slate-400")}>
-          Clique para abrir referência
+          Clique para abrir a referencia
         </p>
       </div>
     </motion.div>

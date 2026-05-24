@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { Library, X } from "lucide-react";
 import { cn } from "@/lib/cn";
-import type { ReferenceItem } from "@/features/write/types";
+import type { WriterReference } from "@/features/write/document/writerDocument";
 
 type ReferencesPanelProps = {
   focusedReferenceId: string | null;
   onClose: () => void;
-  references: ReferenceItem[];
+  references: WriterReference[];
   registerReference: (id: string, element: HTMLElement | null) => void;
 };
 
@@ -31,13 +31,13 @@ export function ReferencesPanel({
             strokeWidth={1.9}
           />
           <span className="text-sm font-semibold text-slate-900">
-            Referências
+            Referencias
           </span>
         </div>
         <button
           type="button"
-          aria-label="Fechar referências"
-          title="Fechar referências"
+          aria-label="Fechar referencias"
+          title="Fechar referencias"
           onClick={onClose}
           className="inline-flex h-8 w-8 items-center justify-center rounded-full text-slate-400 transition hover:bg-white hover:text-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-300/70"
         >
@@ -47,8 +47,11 @@ export function ReferencesPanel({
 
       <div className="min-h-0 flex-1 overflow-y-auto px-4 py-4">
         {references.length === 0 ? (
-          <div className="flex h-full min-h-52 items-center justify-center rounded-[1rem] border border-dashed border-slate-200/80 bg-slate-50/80">
+          <div className="flex h-full min-h-52 flex-col items-center justify-center gap-3 rounded-[1rem] border border-dashed border-slate-200/80 bg-slate-50/80 px-6 text-center">
             <Library className="h-6 w-6 text-slate-300" strokeWidth={1.8} />
+            <p className="text-sm text-slate-400">
+              As referencias citadas no texto aparecem aqui.
+            </p>
           </div>
         ) : (
           <div className="space-y-3">
